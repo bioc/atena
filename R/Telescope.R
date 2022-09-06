@@ -381,7 +381,7 @@ setMethod("qtex", "TelescopeParam",
     # Version 2
     # Xind <- (X / maxbyrow) == 1
     
-    Xind <- as(X, "lgCMatrix")
+    Xind <- as(as(as(X, "lMatrix"), "generalMatrix"), "CsparseMatrix")
     Xind@x <- (X@x /maxbyrow[X@i+1]) == 1
     nmaxbyrow <- rowSums2(Xind)
     
